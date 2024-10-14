@@ -1,0 +1,29 @@
+.top-title h3 {
+    border-bottom: 2px solid;
+    width: fit-content;
+    color: var(--link-color);
+  }
+  .fw-bold {
+    font-weight: 400 !important;
+  }
+  .fs-4 {
+    font-size: calc(1.275rem + .3vw) !important;
+  }
+  .fs-t6 {
+    font-size: 1.1rem !important;
+  }
+.lead-title {
+    font-weight: 300 !important;
+}
+  .lang-switch {
+    font-size: 12px;
+    color: var(--link-color);
+    text-decoration: none !important;
+}
+.p-2 {
+    padding: .5rem !important;
+}
+
+.mb-1 {
+    margin-bottom: .25rem !important;
+}

@@ -1,0 +1,16 @@
+{
+    "topTitle":{
+        "titleHead":"Newsletter Subscription Center",
+        "titleParagraph":"More content from Argaam in your inbox.",
+        "titleParagraph2": "Choose a newsletter from the list below and enter your email to register",
+        "titleBody1":"By subscribing to the newsletter, you agree to receive periodic emails from our site and accept the",
+        "titleLink1":"Privacy Policy",
+        "titleAnd":"and",
+        "titleLink2":"Terms and Conditions.",
+        "titleBody2":"You can unsubscribe at any time from the link in the newsletter email."
+    },
+    "card":{
+        "available":"Available in Arabic",
+        "subscribe":"Subscribe"
+    }
+}

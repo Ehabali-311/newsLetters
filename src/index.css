@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'enFont';
+  src: url('/assets/fonts/enFont.woff2') format('woff2'),
+       url('/assets/fonts/enFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+--white-color: #fff;
+--main-color: #374c5f;
+--link-color: #ee7b0b;
+}
+body, html {
+  font-family: 'enFont', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
