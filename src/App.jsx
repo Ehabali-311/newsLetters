@@ -8,7 +8,7 @@ import NewLetters from "./pages/newsLetters/NewLetters";
 function App() {
   const { i18n } = useTranslation();
   const lang = i18n.language;
-  const { data, isLoading, isError } = useApiQuery("getNews", lang);
+  const { data, isLoading } = useApiQuery("getNews", lang);
 
   if (isLoading) {
     toast.info("Loading news, please wait...", { autoClose: 2000 });

@@ -6,7 +6,7 @@ const NewLetters = ({data}) => {
   return (
     <>
     <TopTitle/>
-    <Card data={data}/>
+    <Card dataNews={data}/>
     </>
   )
 }

@@ -37,3 +37,62 @@ i {
 a{
   cursor: pointer !important;
 }
+.fw-bold-h3 {
+  font-weight: 500 !important;
+}
+h3 {
+  font-size: calc(1.3rem + .6vw) !important;
+}
+
+.btn-close-custom {
+  background-color: var(--link-color) !important; 
+  color: #fff !important;
+  width: 40px !important;
+  border-radius: 5% !important;
+}
+.btn-close-custom i{
+  width: 100% !important;
+  border: none !important;
+}
+.offcanvas{
+  height: 43% !important;
+}
+.custom-form {
+  margin-top: 30px !important;
+}
+.custom-form .input-email {
+  width: 100% !important;
+  padding: 10px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 5px !important;
+  outline: none !important;
+}
+.custom-form .submit-email {
+  width: 100% !important;
+  padding: 10px !important;
+  background: var(--link-color) !important;
+  border: 0 !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+}
+.otp-input {
+  width: 60px !important;
+  height: 60px !important; 
+text-align: center !important;
+  font-size: 18px !important;
+  border: 1px solid #ccc !important;
+  margin: 0 5px  !important;
+  border-radius: 5px !important;
+} 
+
+.subscribe {
+  width: 20% !important;
+  background-color: var(--link-color) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  margin-top: 20px !important;
+  cursor: pointer !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease;
+}
