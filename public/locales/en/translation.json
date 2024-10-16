@@ -12,11 +12,13 @@
     "card":{
         "available":"Available in Arabic",
         "subscribe":"Subscribe",
+        "unsubscribe":"unSubscribe",
         "offcanvasTitle":"Sign up for Argaam Newsletter",
         "emailEnter":"Enter your email",
         "submit":"Submit",
         "activate":"Activation Code has been sent",
         "error":"error sending Email",
-        "otp":"Activation Code (OTP)"
+        "otp":"Activation Code (OTP)",
+        "otpsuccess":" You Are Subscribed"
     }
 }

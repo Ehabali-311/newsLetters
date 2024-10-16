@@ -17,8 +17,9 @@ const Card = ({ dataNews }) => {
   const [otpCode, setOtpCode] = useState(new Array(6).fill("")); 
   const [triggerFetch, setTriggerFetch] = useState(false);
   const [triggerVerify, setTriggerVerify] = useState(false); 
-  const [buttonClass, setButtonClass] = useState("subscribe");
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [subscribedPreferences, setSubscribedPreferences] = useState([]); 
+  const [VerificationId , setVerificationId] = useState(null);
+   const [userIdSub, setUserIdSub] = useState(null);
   const handleSubmitEmail = (e) => {
     e.preventDefault();
     if (email) {
@@ -37,7 +38,8 @@ const Card = ({ dataNews }) => {
       setIsOtpSent(true);
       setError(null);
       setTriggerFetch(false);
-
+      setVerificationId(otpRequestData.regitserVerificationID);
+      
       toast.success(t("card.activate"), {
         position: "top-right",
         autoClose: 800,
@@ -68,30 +70,40 @@ const Card = ({ dataNews }) => {
     setOtpCode(otp); 
   };
   
-  const handleSubmitOtp = ()  => {
-    if (otpData?.regitserVerificationID && otpCode.join("").length === 6) {
+  const handleSubmitOtp = (item) => { 
+    if (otpData.regitserVerificationID && otpCode.join("").length === 6) {
       setTriggerVerify(true);
+      setSubscribedPreferences((prev) => [...prev, item.preferenceID]); 
     }
   };
 
   const { data: verifyData } = useApiQuery(
-    triggerVerify ? "getVerify" : null,
-    otpData && ( otpData.regitserVerificationID, otpCode.join("") ) 
+    triggerVerify && "getVerify",
+    otpData && {
+      registerId: VerificationId,
+      otpCode: otpCode.join("")
+    }
   );
-  
+
   useEffect(() => {
     if (verifyData) {
-      setButtonClass("Unsubscribe bg-outline-danger"); 
-      setIsSubscribed(true);
+      console.log(verifyData);
       setTriggerVerify(false);
-      toast.success(t("card.otpSuccess"), {
+      toast.success(t("card.otpsuccess"), {
         position: "top-right",
         autoClose: 800,
         transition: Slide,
       });
+
+      const offcanvasEl = document.querySelector('.offcanvas.show');
+      if (offcanvasEl) {
+        const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+        bsOffcanvas.hide();
+      }
     }
   }, [verifyData]);
 
+ 
   return (
     <div className="container">
       <ToastContainer />
@@ -145,14 +157,14 @@ const Card = ({ dataNews }) => {
                         </div>
 
                         <button
-                          className={`btn btn-sm mt-2 ${isSubscribed ? 'btn-outline-danger' : 'btn-outline-dark'}`}
+                          className={`btn btn-sm mt-2 ${subscribedPreferences.includes(item.preferenceID) ? "btn-outline-danger" : "btn-outline-dark"}`}
                           data-bs-toggle="offcanvas"
                           data-bs-target={`#offcanvasNewsletter-${item.preferenceID}`}
                           aria-controls={`offcanvasNewsletter-${item.preferenceID}`}
                         >
                           <i className="fa-solid fa-plus mx-1"></i>
-                          {t("card.subscribe")}
-                        </button>
+                          {subscribedPreferences.includes(item.preferenceID) ? t("card.unsubscribe") : t("card.subscribe")}
+                          </button>
                       </div>
                     </div>
                   </div>
@@ -240,7 +252,7 @@ const Card = ({ dataNews }) => {
 
                             </div>
                             <button 
-                              onClick={handleSubmitOtp}
+                             onClick={() => handleSubmitOtp(item)}
                               className="subscribe" 
                               type="submit" 
                               >
